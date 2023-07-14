@@ -1,0 +1,40 @@
+DECLARE  
+   a number(2) := 10;  
+BEGIN  
+   <<loopstart>>  
+   WHILE a < 20 LOOP  
+      dbms_output.put_line ('value of a: ' || a);  
+      a := a + 1;  
+      IF a = 15 THEN  
+         a := a + 1;  
+         GOTO loopstart;  
+      END IF;  
+   END LOOP;  
+END;  
+ 
+
+create table xyz(
+cust_id 
+cust_name varchar2(20),
+  primary key(cust_id)
+);
+
+create table zyx(
+item_id number(5),
+item_name varchar2(20),
+price number(7),
+  primary key(item_id)
+);
+
+
+CREATE TABLE SALES(
+bill_no number(5),
+bill_date date,
+cust_id number(5),
+item_id number(5),
+qty_sold number(2),
+primary key(bill_no),
+foreign key (cust_id) referencs customer(cust_id),
+foreign key (item_id) referencs item(item_id),
+);  
+             
